@@ -10,9 +10,32 @@ pre {
   background-color: #023b57; /* Change to your desired background color */
   padding: 10px;
   font-family: 'MonospaceFont', monospace; /* Use your preferred monospace font */
-  overflow: auto;/* Add horizontal scroll if needed */
+  overflow: auto; /* Add horizontal scroll if needed */
 }
 
+/* Style the scrollbar */
+pre::-webkit-scrollbar {
+  width: 7px; /* Width of the scrollbar */
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: #007bff; /* Color of the scrollbar thumb */
+  border-radius: 0px; /* Rounded corners for the thumb */
+}
+
+pre::-webkit-scrollbar-track {
+  background-color: #000; /* Color of the scrollbar track */
+}
+
+/* For Firefox */
+pre {
+  scrollbar-width: thin; /* Width of the scrollbar */
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: #007bff; /* Color of the scrollbar thumb */
+  border-radius: 0px; /* Rounded corners for the thumb */
+}
 
 .container {
   max-width: 700px; /* Set the maximum width to 700px */
@@ -40,4 +63,14 @@ div{
 
 a,link,nav,header,footer,section,article,aside,main,form,fieldset,label,input,textarea,select,option,table,th,td,hr,pre,code,blockquote,figure,figcaption,video,audio,canvas,iframe,object,embed,mark,small,strong,b,i,u,s,sub,sup,abbr,address,cite,dfn,em,var,button,select,option,textarea,fieldset,legend,progress,table,caption,tbody,tfoot,thead,tr,th,td{
   text-decoration: none !important;
+}
+.window-title {
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

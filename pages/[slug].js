@@ -1,12 +1,14 @@
 // pages/[slug].js
 import fs from 'fs';
 import path from 'path';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import matter from 'gray-matter';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
+
+import UpcomingContestsPopup from '../components/UpcomingContestsPopup'; 
 
 const WriteupWrapper = styled.div`
   background-color: #000; /* Background color for code blocks (bluish) */
@@ -16,8 +18,34 @@ const WriteupWrapper = styled.div`
   justify-content: center; /* Center horizontally */
   max-width: 1000px; /* Limit the maximum width of the content */
 `;
+function highlightCode(code, language) {
+  return Prism.highlight(code, Prism.languages[language], language);
+}
 
 const Writeup = ({ content, data }) => {
+  const [isContentVisible, setContentVisibility] = useState(false);
+  const [upcomingContests, setUpcomingContests] = useState([]);
+
+  useEffect(() => {
+    async function fetchUpcomingContests() {
+      try {
+        const response = await fetch('api/upcoming'); // Replace with the correct API endpoint
+        if (response.ok) {
+          const data = await response.json();
+          setUpcomingContests(data);
+        }
+      } catch (error) {
+        console.error('Error fetching upcoming contests:', error);
+      }
+    }
+
+    fetchUpcomingContests();
+  }, []);
+
+  const toggleContentVisibility = () => {
+    setContentVisibility(!isContentVisible);
+  };
+
   return (
     <div>
       <Header />
@@ -29,6 +57,11 @@ const Writeup = ({ content, data }) => {
       </WriteupWrapper>
 
       <Footer />
+      <UpcomingContestsPopup
+        isVisible={isContentVisible}
+        upcomingContests={upcomingContests}
+        toggleContentVisibility={toggleContentVisibility}
+      />
     </div>
   );
 };

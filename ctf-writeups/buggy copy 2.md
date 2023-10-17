@@ -18,7 +18,7 @@ Embark on a journey through the Buggy Portal to discover its concealed treasure.
 
 Initially, upon visiting the website, we encountered a login page. Our suspicion was that the challenge might involve SQL injection. However, it appears that this method doesn't work. Therefore, let's examine the JavaScript part of the source code for further clues.
 
-```javascript
+```
 function validateLogin() {
     var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;

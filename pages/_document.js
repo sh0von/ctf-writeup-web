@@ -5,6 +5,8 @@ export default function Document() {
     <Html lang="en">        
     <Head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
     {/* Other meta tags, link tags, or styles can be added here */}
   </Head>
       <body>

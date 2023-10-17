@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import theme from '../styles/theme';
-import moment from 'moment';
+import UpcomingContestsPopup from '../components/UpcomingContestsPopup'; // Adjust the import path as needed
 
 
 
@@ -38,76 +38,10 @@ const WriteupCard = styled.div`
   max-width: 300px;
 `;
 
-const ToggleButton = styled.button`
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-`;
-
-const PopUpContent = styled.div`
-  background-color: #000;
-  border: 1px solid #007bff;
-  position: fixed;
-  bottom: 70px;
-  left: 20px;
-  padding: 10px;
-  max-width: 300px;
-  display: ${(props) => (props.isVisible ? 'block' : 'none')};
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s; /* Add animation for popup */
-  /* Make the content scrollable */
-  max-height: 400px; /* Adjust the maximum height as needed */
-  overflow: auto; /* Enable vertical scrolling if content exceeds the max height */
-
-  /* Style the scrollbar */
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #007bff #000; /* Firefox */
-  &::-webkit-scrollbar {
-    width: 7px; /* Width of the scrollbar */
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: #007bff; /* Color of the scrollbar thumb */
-    border-radius: 0px; /* Rounded corners for the thumb */
-  }
-  ul {
-    list-style: disc; /* Style for unordered lists (bulleted) */
-    padding-left: 20px; /* Adjust the left padding as needed */
-
-    li {
-      margin: 5px 0; /* Adjust the margin between list items */
-      color: #fff; /* Text color for list items */
-    }
-`;
-const MinimizeButton = styled.button`
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  padding: 5px 10px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  line-height: 0;
-`;
-
 const Home = ({ writeups }) => {
   const [isContentVisible, setContentVisibility] = useState(false);
   const [upcomingContests, setUpcomingContests] = useState([]);
-  
+
   
 
   useEffect(() => {
@@ -147,30 +81,14 @@ const Home = ({ writeups }) => {
           ))}
         </BlogList>
       </HomeWrapper>
-      <Footer />
-      <ToggleButton onClick={toggleContentVisibility}>+</ToggleButton>
-      <PopUpContent isVisible={isContentVisible}>
-        <MinimizeButton onClick={toggleContentVisibility}>-</MinimizeButton>
-        {upcomingContests.length > 0 ? (
-          <div>
-         <div>
-
-  {upcomingContests.slice(0, 10).map((contest) => (
-    <div key={contest.id}>
-      <h5>{contest.title}</h5>
-      <p>Start: {moment(contest.start).format('D MMMM YYYY')}</p>
-      <p>Format: {contest.format}</p>
-      <hr /> 
-    </div>
-   
-  ))}
-</div>
-
-          </div>
-        ) : (
-          <p>No upcoming contests available.</p>
-        )}
-      </PopUpContent>
+      <Footer />  
+      
+      
+      <UpcomingContestsPopup
+        isVisible={isContentVisible}
+        upcomingContests={upcomingContests}
+        toggleContentVisibility={toggleContentVisibility}
+      />
     </div>
   );
 };
