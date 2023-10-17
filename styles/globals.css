@@ -1,0 +1,43 @@
+/* Apply to the root container, usually <body> or a container <div> */
+
+/* Set the background color of the entire website to black */
+body {
+  background-color: #000;
+  color: #fff; /* Set text color to white or a color that's visible on a black background */
+}
+/* Edit the background color of the pre elements */
+pre {
+  background-color: #023b57; /* Change to your desired background color */
+  padding: 10px;
+  font-family: 'MonospaceFont', monospace; /* Use your preferred monospace font */
+  overflow: auto;/* Add horizontal scroll if needed */
+}
+
+
+.container {
+  max-width: 700px; /* Set the maximum width to 700px */
+  margin: 0 auto; /* Center the content horizontally */
+  padding: 20px; /* Add padding to create space between the content and the viewport */
+  height: 100%;
+  color: #fff; /* Set the height to 100% of the viewport height */
+}
+/* Add this CSS to your global stylesheet or a specific component's stylesheet */
+/* You can adjust the styles as needed */
+
+/* Style for inline code */
+/* Add this CSS to your global stylesheet or a specific component's stylesheet */
+/* You can adjust the styles as needed */
+
+/* Style for inline code */
+body,html,a,p,h1,h2,h3,h4,h5,h6,ul,li,ol,div,span,button,link,nav,header,footer,section,article,aside,main,form,fieldset,label,input,textarea,select,option,table,th,td,hr,pre,code,blockquote,figure,figcaption,video,audio,canvas,iframe,object,embed,mark,small,strong,b,i,u,s,sub,sup,abbr,address,cite,dfn,em,var,button,select,option,textarea,fieldset,legend,progress,table,caption,tbody,tfoot,thead,tr,th,td{
+  color: #fff;
+
+}
+div{
+  
+  background-color: #000;
+}
+
+a,link,nav,header,footer,section,article,aside,main,form,fieldset,label,input,textarea,select,option,table,th,td,hr,pre,code,blockquote,figure,figcaption,video,audio,canvas,iframe,object,embed,mark,small,strong,b,i,u,s,sub,sup,abbr,address,cite,dfn,em,var,button,select,option,textarea,fieldset,legend,progress,table,caption,tbody,tfoot,thead,tr,th,td{
+  text-decoration: none !important;
+}
