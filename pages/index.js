@@ -66,9 +66,8 @@ const Home = ({ writeups }) => {
 
   return (
     <div>
-      <Header />
+ <Header />
       <HomeWrapper>
-        <h1 className='text-center my-4'>Welcome to CTF Writeups</h1>
         <BlogList>
           {writeups.map((writeup) => (
             <Link key={writeup.slug} href={`/${writeup.slug}`}>

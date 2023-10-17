@@ -56,7 +56,7 @@ const ToggleButton = styled.button`
   transition: all 0.3s; /* Add a smooth transition */
   z-index: 999; /* Ensure the button is above other content */
   &::after {
-    content: ' Upcoming'; /* Initially show the "+" and "Upcoming" text */
+    content: ' Upcoming CTF'; /* Initially show the "+" and "Upcoming" text */
     display: none; /* Hide the text */
   }
   &:hover {

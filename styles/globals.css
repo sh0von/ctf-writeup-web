@@ -63,6 +63,7 @@ div{
 
 a,link,nav,header,footer,section,article,aside,main,form,fieldset,label,input,textarea,select,option,table,th,td,hr,pre,code,blockquote,figure,figcaption,video,audio,canvas,iframe,object,embed,mark,small,strong,b,i,u,s,sub,sup,abbr,address,cite,dfn,em,var,button,select,option,textarea,fieldset,legend,progress,table,caption,tbody,tfoot,thead,tr,th,td{
   text-decoration: none !important;
+
 }
 .window-title {
   background-color: #007bff;

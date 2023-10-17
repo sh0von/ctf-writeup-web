@@ -21,9 +21,7 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <Link href="../"> {/* Wrap the site name with a link to the home page */}
-        <a>
-          <Logo>B.Y.T.E</Logo>
-        </a>
+   <h1>B.Y.T.E</h1>
       </Link>
     </HeaderWrapper>
   );
