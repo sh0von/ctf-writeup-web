@@ -7,7 +7,7 @@ import matter from 'gray-matter';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
-
+import SEO from '../components/SEO';
 import UpcomingContestsPopup from '../components/UpcomingContestsPopup'; 
 
 const WriteupWrapper = styled.div`
@@ -16,7 +16,7 @@ const WriteupWrapper = styled.div`
   padding: 20px; /* Adjust the padding as needed */
   font-family: 'MonospaceFont', monospace; /* Use your preferred monospace font */
   justify-content: center; /* Center horizontally */
-  max-width: 1000px; /* Limit the maximum width of the content */
+  max-width: 700px; /* Limit the maximum width of the content */
 `;
 function highlightCode(code, language) {
   return Prism.highlight(code, Prism.languages[language], language);
@@ -49,10 +49,18 @@ const Writeup = ({ content, data }) => {
   return (
     <div>
       <Header />
+      <SEO
+        title={data.title} // Dynamic title
+        description={data.description} // Dynamic description
+      />
+
 
       <WriteupWrapper>
         <h1 className="text-center">{data.title}</h1>
+        <p className="text-center">{data.tags.join(', ')}</p>
+        
         <p className="text-center">Author: {data.author}</p>
+
         <ReactMarkdown>{content}</ReactMarkdown>
       </WriteupWrapper>
 

@@ -3,7 +3,7 @@
 
 /* Apply to the root container, usually <body> or a container <div> */
 body {
-  min-height: 100vh; /* Set the minimum height to 100% of the viewport height */
+   /* Set the minimum height to 100% of the viewport height */
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
   display: flex;

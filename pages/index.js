@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import theme from '../styles/theme';
 import UpcomingContestsPopup from '../components/UpcomingContestsPopup'; // Adjust the import path as needed
-
+import SEO from '../components/SEO'; // Adjust the import path as needed
 
 
 const HomeWrapper = styled.div`
@@ -32,7 +32,7 @@ const BlogList = styled.div`
 `;
 
 const WriteupCard = styled.div`
-  border: 1px solid #fff;
+  border: 1px solid #007bff;
   padding: 10px;
   flex: 1;
   max-width: 300px;
@@ -66,7 +66,11 @@ const Home = ({ writeups }) => {
 
   return (
     <div>
- <Header />
+ <Header />  <SEO
+        title="C-Sec" // Dynamic title
+        description="C-Sec website by BYTE"// Dynamic description
+      />
+
       <HomeWrapper>
         <BlogList>
           {writeups.map((writeup) => (

@@ -20,8 +20,8 @@ const Logo = styled.div`
 const Header = () => {
   return (
     <HeaderWrapper>
-      <Link href="../"> {/* Wrap the site name with a link to the home page */}
-   <h1>B.Y.T.E</h1>
+      <Link href="../"> 
+   <h1>C-Sec</h1>
       </Link>
     </HeaderWrapper>
   );
