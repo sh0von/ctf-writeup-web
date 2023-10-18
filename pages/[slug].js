@@ -49,7 +49,7 @@ const Writeup = ({ content, data }) => {
       <SEO
         title={data.title} // Dynamic title
         description={data.description} // Dynamic description
-        ogImage="../C-Sec.png"
+        ogImage="https://imageupload.io/ib/95X3bjGHAq8XqlK_1697642998.png"
       />
 
       <WriteupWrapper>

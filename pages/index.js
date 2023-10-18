@@ -7,8 +7,8 @@ import styled from 'styled-components'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import theme from '../styles/theme'
-import UpcomingContestsPopup from '../components/UpcomingContestsPopup'
-import SEO from '../components/SEO'
+import UpcomingContestsPopup from '../components/UpcomingContestsPopup' // Adjust the import path as needed
+import SEO from '../components/SEO' // Adjust the import path as needed
 
 const HomeWrapper = styled.div`
   background-color: ${theme.colors.background};
@@ -38,43 +38,34 @@ const WriteupCard = styled.div`
 `
 
 const Home = ({ writeups }) => {
-  const [isContentVisible, setContentVisibility] = useState(false);
-  const [upcomingContests, setUpcomingContests] = useState([]);
+  const [isContentVisible, setContentVisibility] = useState(false)
+  const [upcomingContests, setUpcomingContests] = useState([])
 
   useEffect(() => {
-    async function fetchUpcomingContests() {
+    async function fetchUpcomingContests () {
       try {
-        const response = await fetch('api/upcoming');
+        const response = await fetch('api/upcoming') // Replace with the correct API endpoint
         if (response.ok) {
-          const data = await response.json();
-          setUpcomingContests(data);
+          const data = await response.json()
+          setUpcomingContests(data)
         }
       } catch (error) {
-        console.error('Error fetching upcoming contests:', error);
+        console.error('Error fetching upcoming contests:', error)
       }
     }
 
-    fetchUpcomingContests();
-  }, []);
+    fetchUpcomingContests()
+  }, [])
 
   const toggleContentVisibility = () => {
-    setContentVisibility(!isContentVisible);
+    setContentVisibility(!isContentVisible)
   }
-
-  const truncateDescription = (description) => {
-    if (description.length > 100) {
-      return description.substring(0, 100) + '...';
-    }
-    return description;
-  };
 
   return (
     <div>
-      <Header />
-      <SEO
-        title="C-Sec"
-        description="C-Sec website by BYTE"
-        ogImage="../C-Sec.png"
+ <Header />  <SEO
+        title="C-Sec" // Dynamic title
+        description="C-Sec website by BYTE"// Dynamic description
       />
 
       <HomeWrapper>
@@ -83,7 +74,7 @@ const Home = ({ writeups }) => {
             <Link key={writeup.slug} href={`/${writeup.slug}`}>
               <WriteupCard>
                 <h3>{writeup.data.title}</h3>
-                <p>{truncateDescription(writeup.data.description)}</p>
+                <p>{writeup.data.description}</p>
                 <p>Author: {writeup.data.author}</p>
               </WriteupCard>
             </Link>
@@ -98,9 +89,8 @@ const Home = ({ writeups }) => {
         toggleContentVisibility={toggleContentVisibility}
       />
     </div>
-  );
+  )
 }
-
 
 export async function getStaticProps () {
   const files = fs.readdirSync(path.join(process.cwd(), 'ctf-writeups'))

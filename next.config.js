@@ -15,3 +15,14 @@ module.exports = {
     ];
   },
 };
+// next.config.js
+module.exports = {
+  webpack(config, { isServer }) {
+    if (!isServer) {
+      // Add the styled-components babel plugin to the client-side
+      require('styled-components');
+    }
+
+    return config;
+  },
+};
