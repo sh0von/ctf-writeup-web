@@ -75,7 +75,7 @@ const Home = ({ writeups }) => {
         title="C-Sec" // Dynamic title
         description="C-Sec website by BYTE" // Dynamic description
         
-  ogImage="https://og-image-rest-generator.fly.dev/seo-banner?title=OG:IMAGE%20REST%20Generator%20-%20Free%20And%20Open%20Source!&author=darkterminal&head=Young%20Tyrex%20Release&writer=Punk%20Storyteller"
+  ogImage="../C-Sec.png"
       />
 
       <HomeWrapper>
