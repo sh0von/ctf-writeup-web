@@ -38,34 +38,42 @@ const WriteupCard = styled.div`
 `
 
 const Home = ({ writeups }) => {
-  const [isContentVisible, setContentVisibility] = useState(false)
-  const [upcomingContests, setUpcomingContests] = useState([])
+  const [isContentVisible, setContentVisibility] = useState(false);
+  const [upcomingContests, setUpcomingContests] = useState([]);
 
   useEffect(() => {
-    async function fetchUpcomingContests () {
+    async function fetchUpcomingContests() {
       try {
-        const response = await fetch('api/upcoming') // Replace with the correct API endpoint
+        const response = await fetch('api/upcoming'); // Replace with the correct API endpoint
         if (response.ok) {
-          const data = await response.json()
-          setUpcomingContests(data)
+          const data = await response.json();
+          setUpcomingContests(data);
         }
       } catch (error) {
-        console.error('Error fetching upcoming contests:', error)
+        console.error('Error fetching upcoming contests:', error);
       }
     }
 
-    fetchUpcomingContests()
-  }, [])
+    fetchUpcomingContests();
+  }, []);
 
   const toggleContentVisibility = () => {
-    setContentVisibility(!isContentVisible)
+    setContentVisibility(!isContentVisible);
   }
+
+  const truncateDescription = (description) => {
+    if (description.length > 100) {
+      return description.substring(0, 100) + '...';
+    }
+    return description;
+  };
 
   return (
     <div>
- <Header />  <SEO
+      <Header />
+      <SEO
         title="C-Sec" // Dynamic title
-        description="C-Sec website by BYTE"// Dynamic description
+        description="C-Sec website by BYTE" // Dynamic description
       />
 
       <HomeWrapper>
@@ -74,7 +82,7 @@ const Home = ({ writeups }) => {
             <Link key={writeup.slug} href={`/${writeup.slug}`}>
               <WriteupCard>
                 <h3>{writeup.data.title}</h3>
-                <p>{writeup.data.description}</p>
+                <p>{truncateDescription(writeup.data.description)}</p>
                 <p>Author: {writeup.data.author}</p>
               </WriteupCard>
             </Link>
@@ -89,8 +97,9 @@ const Home = ({ writeups }) => {
         toggleContentVisibility={toggleContentVisibility}
       />
     </div>
-  )
+  );
 }
+
 
 export async function getStaticProps () {
   const files = fs.readdirSync(path.join(process.cwd(), 'ctf-writeups'))
