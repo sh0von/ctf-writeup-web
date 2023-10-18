@@ -74,6 +74,7 @@ const Home = ({ writeups }) => {
       <SEO
         title="C-Sec"
         description="C-Sec website by BYTE"
+        ogImage="../C-Sec.png"
       />
 
       <HomeWrapper>
