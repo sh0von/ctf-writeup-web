@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import fs from 'fs'
-import path from 'path'
-import Link from 'next/link'
-import matter from 'gray-matter'
-import styled from 'styled-components'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import theme from '../styles/theme'
-import UpcomingContestsPopup from '../components/UpcomingContestsPopup' // Adjust the import path as needed
-import SEO from '../components/SEO' // Adjust the import path as needed
+import React, { useState, useEffect } from 'react';
+import fs from 'fs';
+import path from 'path';
+import Link from 'next/link';
+import matter from 'gray-matter';
+import styled, { ServerStyleSheet } from 'styled-components'; // Import ServerStyleSheet
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import theme from '../styles/theme';
+import UpcomingContestsPopup from '../components/UpcomingContestsPopup';
+import SEO from '../components/SEO';
 
 const HomeWrapper = styled.div`
   background-color: ${theme.colors.background};
@@ -20,7 +20,7 @@ const HomeWrapper = styled.div`
   align-items: center;
   position: relative;
   min-height: 100vh;
-`
+`;
 
 const BlogList = styled.div`
   display: flex;
@@ -28,44 +28,47 @@ const BlogList = styled.div`
   justify-content: center;
   gap: 20px;
   max-width: 700px;
-`
+`;
 
 const WriteupCard = styled.div`
   border: 1px solid #fff;
   padding: 10px;
   flex: 1;
   max-width: 300px;
-`
+`;
+
 
 const Home = ({ writeups }) => {
-  const [isContentVisible, setContentVisibility] = useState(false)
-  const [upcomingContests, setUpcomingContests] = useState([])
+  const [isContentVisible, setContentVisibility] = useState(false);
+  const [upcomingContests, setUpcomingContests] = useState([]);
 
   useEffect(() => {
-    async function fetchUpcomingContests () {
+    async function fetchUpcomingContests() {
       try {
-        const response = await fetch('api/upcoming') // Replace with the correct API endpoint
+        const response = await fetch('/api/upcoming'); // Use the correct API endpoint
         if (response.ok) {
-          const data = await response.json()
-          setUpcomingContests(data)
+          const data = await response.json();
+          setUpcomingContests(data);
         }
       } catch (error) {
-        console.error('Error fetching upcoming contests:', error)
+        console.error('Error fetching upcoming contests:', error);
       }
     }
 
-    fetchUpcomingContests()
-  }, [])
+    fetchUpcomingContests();
+  }, []);
 
   const toggleContentVisibility = () => {
-    setContentVisibility(!isContentVisible)
-  }
+    setContentVisibility(!isContentVisible);
+  };
 
   return (
     <div>
- <Header />  <SEO
-        title="C-Sec" // Dynamic title
-        description="C-Sec website by BYTE"// Dynamic description
+      <Header />
+      <SEO
+        title="C-Sec"
+        description="C-Sec website by BYTE"
+        ogImage="https://imageupload.io/ib/95X3bjGHAq8XqlK_1697642998.png"
       />
 
       <HomeWrapper>
@@ -89,27 +92,27 @@ const Home = ({ writeups }) => {
         toggleContentVisibility={toggleContentVisibility}
       />
     </div>
-  )
-}
+  );
+};
 
-export async function getStaticProps () {
-  const files = fs.readdirSync(path.join(process.cwd(), 'ctf-writeups'))
+export async function getStaticProps() {
+  const files = fs.readdirSync(path.join(process.cwd(), 'ctf-writeups'));
   const writeups = files.map((filename) => {
     const markdownWithMetadata = fs.readFileSync(
       path.join(process.cwd(), 'ctf-writeups', filename),
       'utf-8'
-    )
-    const { data } = matter(markdownWithMetadata)
+    );
+    const { data } = matter(markdownWithMetadata);
     return {
       slug: filename.replace('.md', ''),
-      data
-    }
-  })
+      data,
+    };
+  });
   return {
     props: {
-      writeups
-    }
-  }
+      writeups,
+    },
+  };
 }
 
-export default Home
+export default Home;
