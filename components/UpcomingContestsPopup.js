@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBolt } from '@fortawesome/free-solid-svg-icons'
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//import { faBolt } from '@fortawesome/free-solid-svg-icons'
 
 const PopUpContent = styled.div`
   background-color: #000;
@@ -89,7 +89,8 @@ const MinimizeButton = styled.button`
 const UpcomingContestsPopup = ({ isVisible, upcomingContests, toggleContentVisibility }) => {
   return (
     <div>
-    <ToggleButton onClick={toggleContentVisibility}>  <FontAwesomeIcon icon={faBolt} />
+    <ToggleButton onClick={toggleContentVisibility}>  
+    {/* <FontAwesomeIcon icon={faBolt} />*/}
 </ToggleButton>
     <PopUpContent isVisible={isVisible}>
     <MinimizeButton onClick={toggleContentVisibility}>-</MinimizeButton>
