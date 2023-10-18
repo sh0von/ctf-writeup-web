@@ -59,9 +59,31 @@ const ToggleButton = styled.button`
     content: ' Upcoming CTF'; /* Initially show the "+" and "Upcoming" text */
     display: none; /* Hide the text */
   }
+  animation: shake 2s ease; /* Add the shake animation with a 2-second duration */
+
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(5px);
+    }
+    40% {
+      transform: translateX(-5px);
+    }
+    60% {
+      transform: translateX(5px);
+    }
+    80% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
   &:hover {
     width: 200px; /* Expand the button width on hover */
-    
     border-radius: 2%;
     &::after {
       display: block; /* Show the text on hover */
@@ -69,7 +91,8 @@ const ToggleButton = styled.button`
       opacity: 1; /* Make the text fully visible */
     }
   }
-`
+`;
+
 
 const MinimizeButton = styled.button`
   background-color: #007bff;
