@@ -74,6 +74,7 @@ const Home = ({ writeups }) => {
       <SEO
         title="C-Sec" // Dynamic title
         description="C-Sec website by BYTE" // Dynamic description
+        
       />
 
       <HomeWrapper>
