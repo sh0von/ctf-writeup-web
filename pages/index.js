@@ -11,30 +11,12 @@ import UpcomingContestsPopup from '../components/UpcomingContestsPopup'
 import SEO from '../components/SEO'
 
 const HomeWrapper = styled.div`
-  background-color: ${theme.colors.background};
-  color: ${theme.colors.text};
-  padding: 20px;
-  font-family: 'PixelFont', monospace;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  min-height: 100vh;
 `
 
 const BlogList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  max-width: 700px;
 `
 
 const WriteupCard = styled.div`
-  border: 1px solid #fff;
-  padding: 10px;
-  flex: 1;
-  max-width: 300px;
 `
 
 const Home = ({ writeups }) => {
