@@ -91,11 +91,7 @@ const Home = ({ writeups }) => {
       </HomeWrapper>
       <Footer />
 
-      <UpcomingContestsPopup
-        isVisible={isContentVisible}
-        upcomingContests={upcomingContests}
-        toggleContentVisibility={toggleContentVisibility}
-      />
+
     </div>
   );
 }
