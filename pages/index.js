@@ -76,8 +76,8 @@ const Home = ({ writeups }) => {
           {writeups.map((writeup) => (
             <Link key={writeup.slug} href={`/${writeup.slug}`}>
               <WriteupCard>
-                <h3>{writeup.data.title}</h3>
-                <p>{writeup.data.description}</p>
+                <h3>{writeup.data.title}</h3>   
+                <p>{writeup.data.description.slice(0, 80)}</p>
                 <p>Author: {writeup.data.author}</p>
               </WriteupCard>
             </Link>
