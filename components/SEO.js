@@ -1,4 +1,4 @@
-import { NextSeo } from 'next-seo';
+import { NextSeo } from 'next-seo'
 
 const SEO = ({ title, description, canonical }) => {
   return (
@@ -13,10 +13,10 @@ const SEO = ({ title, description, canonical }) => {
         description,
         images: [
           // Add open graph images if needed
-        ],
+        ]
       }}
     />
-  );
-};
+  )
+}
 
-export default SEO;
+export default SEO

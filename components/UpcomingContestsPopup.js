@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import moment from 'moment';
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBolt } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect } from 'react'
+import moment from 'moment'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBolt } from '@fortawesome/free-solid-svg-icons'
 
 const PopUpContent = styled.div`
   background-color: #000;
@@ -37,7 +37,7 @@ const PopUpContent = styled.div`
       margin: 5px 0; /* Adjust the margin between list items */
       color: #fff; /* Text color for list items */
     }
-`;
+`
 
 const ToggleButton = styled.button`
   background-color: #007bff;
@@ -69,7 +69,7 @@ const ToggleButton = styled.button`
       opacity: 1; /* Make the text fully visible */
     }
   }
-`;
+`
 
 const MinimizeButton = styled.button`
   background-color: #007bff;
@@ -85,16 +85,17 @@ const MinimizeButton = styled.button`
   justify-content: center;
   font-size: 30px;
   line-height: 0;
-`;
+`
 const UpcomingContestsPopup = ({ isVisible, upcomingContests, toggleContentVisibility }) => {
   return (
     <div>
     <ToggleButton onClick={toggleContentVisibility}>  <FontAwesomeIcon icon={faBolt} />
 </ToggleButton>
-    <PopUpContent isVisible={isVisible}>    
+    <PopUpContent isVisible={isVisible}>
     <MinimizeButton onClick={toggleContentVisibility}>-</MinimizeButton>
-    
-      {upcomingContests.length > 0 ? (
+
+      {upcomingContests.length > 0
+        ? (
         <div>
           {upcomingContests.slice(0, 10).map((contest) => (
             <div key={contest.id}>
@@ -109,11 +110,12 @@ const UpcomingContestsPopup = ({ isVisible, upcomingContests, toggleContentVisib
             </div>
           ))}
         </div>
-      ) : (
+          )
+        : (
         <p>No upcoming contests available.</p>
-      )}
+          )}
     </PopUpContent></div>
-  );
-};
+  )
+}
 
-export default UpcomingContestsPopup;
+export default UpcomingContestsPopup
