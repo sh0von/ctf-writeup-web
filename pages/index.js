@@ -7,8 +7,8 @@ import styled from 'styled-components'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import theme from '../styles/theme'
-import UpcomingContestsPopup from '../components/UpcomingContestsPopup' // Adjust the import path as needed
-import SEO from '../components/SEO' // Adjust the import path as needed
+import UpcomingContestsPopup from '../components/UpcomingContestsPopup'
+import SEO from '../components/SEO'
 
 const HomeWrapper = styled.div`
   background-color: ${theme.colors.background};
@@ -44,7 +44,7 @@ const Home = ({ writeups }) => {
   useEffect(() => {
     async function fetchUpcomingContests() {
       try {
-        const response = await fetch('api/upcoming'); // Replace with the correct API endpoint
+        const response = await fetch('api/upcoming');
         if (response.ok) {
           const data = await response.json();
           setUpcomingContests(data);
@@ -72,8 +72,8 @@ const Home = ({ writeups }) => {
     <div>
       <Header />
       <SEO
-        title="C-Sec" // Dynamic title
-        description="C-Sec website by BYTE" // Dynamic description
+        title="C-Sec"
+        description="C-Sec website by BYTE"
       />
 
       <HomeWrapper>
