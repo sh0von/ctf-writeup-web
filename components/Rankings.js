@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import theme from '../styles/theme';
-
 const RankingsWrapper = styled.div`
   background-color: ${theme.colors.background};
   color: ${theme.colors.text};
@@ -14,9 +13,30 @@ const RankingsWrapper = styled.div`
   min-height: 100vh;
 `;
 
+const RankingsTableContainer = styled.div`
+  width: 100%; /* Set the desired max height for scrollability */
+  overflow-x: auto; /* Enable vertical scrolling if content exceeds max height */
+  scrollbar-width: thin;
+  scrollbar-color: #007bff;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${theme.colors.background};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${theme.colors.primary};
+    border-radius: 6px;
+  }
+`;
+
 const RankingsTable = styled.table`
   width: 100%;
   border-collapse: collapse;
+  align-self: center;
   margin: 20px auto;
   background-color: ${theme.colors.background};
   color: ${theme.colors.text};
@@ -40,7 +60,6 @@ const RankingsTable = styled.table`
     background-color: ${theme.colors.secondary};
   }
 `;
-
 const PageSize = 10; // Number of entries per page
 
 const Rankings = () => {
@@ -87,6 +106,7 @@ const Rankings = () => {
   return (
     <RankingsWrapper>
       <h1>Top 10 Rankings (Descending by Rating)</h1>
+      <RankingsTableContainer>
       <RankingsTable>
         <thead>
           <tr>
@@ -109,6 +129,7 @@ const Rankings = () => {
           ))}
         </tbody>
       </RankingsTable>
+      </RankingsTableContainer>
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
