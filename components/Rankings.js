@@ -105,7 +105,7 @@ const Rankings = () => {
 
   return (
     <RankingsWrapper>
-      <h1>Top 10 Rankings (Descending by Rating)</h1>
+      <h1 className="text-center">Top 10 Rankings (Descending by Rating)</h1>
       <RankingsTableContainer>
       <RankingsTable>
         <thead>
