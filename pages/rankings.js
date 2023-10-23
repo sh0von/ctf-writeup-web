@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import csv from 'csv-parser';
 import React from 'react';
+import SEO from '../components/SEO'; // Import the SEO component
 
 import Header from '../components/Header'; // Import the Header component
 import Footer from '../components/Footer'; // Import the Footer component
