@@ -22,6 +22,11 @@ const readCSVData = (filePath) => {
 const RankingsPage = ({ rankingsData }) => {
   return (
     <div>
+            <SEO
+        title="C-Sec Rankings"
+        description="C-Sec website by BYTE"
+        ogImage="https://imageupload.io/ib/95X3bjGHAq8XqlK_1697642998.png"
+      />
       <Header /> {/* Include the Header component */}
       <Rankings rankings={rankingsData} />
       <Footer /> {/* Include the Footer component */}
