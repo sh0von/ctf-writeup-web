@@ -26,30 +26,16 @@ const Logo = styled.div`
   display: flex;
   align-items: center; /* Center horizontally */
   cursor: pointer;
+  transition: border-right 0.5s ease; /* Add a transition effect */
 
-  animation: typing 1.5s steps(20, end), blink-caret 0.75s step-end infinite;
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-  @keyframes blink-caret {
-    from,
-    to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: #fff;
-    }
+  &:hover {
+    border-right: 2px solid #fff; /* Change border on hover */
   }
 `;
 
 const Menu = styled.div`
   @media (max-width: 768px) {
-    display: ${props => props.open ? 'block' : 'none'};
+    display: ${props => (props.open ? 'block' : 'none')};
     background-color: #000;
     padding: 10px;
     width: 100%;
@@ -66,7 +52,7 @@ const MenuItem = styled.a`
   &:hover {
     text-decoration: underline;
   }
-  
+
   @media (max-width: 768px) {
     display: block;
     margin: 10px 0;
@@ -96,11 +82,11 @@ const Header = () => {
         ☰
       </MobileMenuButton>
       <Menu open={menuOpen}>
-        <Link href="/demo1">
-          <MenuItem>Demo 1</MenuItem>
+        <Link href="/rankings">
+          <MenuItem>Rankings</MenuItem>
         </Link>
-        <Link href="/demo2">
-          <MenuItem>Demo 2</MenuItem>
+        <Link href="/group">
+          <MenuItem>FB Group</MenuItem>
         </Link>
       </Menu>
     </HeaderWrapper>
